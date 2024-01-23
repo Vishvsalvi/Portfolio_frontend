@@ -12,13 +12,13 @@ import axios from "axios"
 import { useState } from "react"
 import { useToast } from "@/components/ui/use-toast"
 
-import nodeBlog from "../../../public/Images/Node_blog.avif"
-import tokenBlog from "../../../public/Images/Token_blog.avif"
-import fakeBlog from "../../../public/Images/Fake_blog.avif"
+import nodeBlog from "../../app/Images/Node_blog.avif"
+import tokenBlog from "../../app/Images/Token_blog.avif"
+import fakeBlog from "../../app/Images/Fake_blog.avif"
 
-import project_1 from "../../../public/Images/project_1.png"
-import project_2 from "../../../public/Images/project_2.png"
-import project_3 from "../../../public/Images/project_3.png"
+import project_1 from "../../app/Images/project_1.png"
+import project_2 from "../../app/Images/project_2.png"
+import project_3 from "../../app/Images/project_3.png"
 
 export default function Portfoliowebsite() {
   
