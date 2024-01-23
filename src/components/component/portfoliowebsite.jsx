@@ -88,7 +88,7 @@ export default function Portfoliowebsite() {
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-600">
-                  Hi, I'm Vishv Salvi
+                  Hi, I&apos;m Vishv Salvi
                 </h1>
                 <p className="mx-auto max-w-[700px] text-[#343A40] md:text-xl">
                   A full-stack developer with a passion for creating beautiful, functional web applications and writing blogs.
