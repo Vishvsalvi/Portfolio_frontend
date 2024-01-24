@@ -1,4 +1,5 @@
-import Portfoliowebsite from "@/components/component/portfoliowebsite";
+import Portfoliowebsite from "./components/component/portfoliowebsite"
+
 
 export default function Home() {
   return (

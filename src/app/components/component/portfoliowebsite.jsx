@@ -1,24 +1,23 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-import { CardTitle, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
+import { CardTitle, 
+  CardHeader, 
+  CardContent, 
+  CardFooter, 
+  Card
+} from "../ui/card"
+
+import { Badge } from "../ui/badge"
+import { Label } from "../ui/label"
+import { Input } from "../ui/input"
+import { Textarea } from "../ui/textarea"
+import { Button } from "../ui/button"
 
 import axios from "axios"
 import { useState } from "react"
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "../ui/use-toast"
 
-import nodeBlog from "../../app/Images/Node_blog.avif"
-import tokenBlog from "../../app/Images/Token_blog.avif"
-import fakeBlog from "../../app/Images/Fake_blog.avif"
-
-import project_1 from "../../app/Images/project_1.png"
-import project_2 from "../../app/Images/project_2.png"
-import project_3 from "../../app/Images/project_3.png"
 
 export default function Portfoliowebsite() {
   
@@ -29,7 +28,49 @@ export default function Portfoliowebsite() {
 
   const {toast} = useToast()
 
+  const projects = [
+    {
+      title: "Karnix 3d Farm",
+      demoLink: "https://k3df.onrender.com/",
+      description: "Website made for a 3d printing business. This was my first freelance project.",
+      image: "/Images/Project_1.png",
+    }, 
+    {
+      title: "Flipkart Clone",
+      demoLink: "https://flipkart-clone.pages.dev/",
+      description: "Flipkart Clone made using React and Tailwind CSS. It is a frontend project.",
+      image: "/Images/Project_2.png",
+    },
+    {
+      title: "Ahead Group (In progress)",
+      demoLink: "#",
+      description: "Website made for a Educational Trust. This is a freelance gig.",
+      image: "/Images/Project_3.png",
+    }
+  ]
+
+  const blogs = [
+    {
+      title: "Node.js: The Scalable and Lightweight Choice for Developers",
+      visitBlog: "https://vishvsalvi.hashnode.dev/nodejs-the-scalable-and-lightweight-choice-for-developers",
+      image: "/Images/Node_blog.avif",
+
+    },
+    {
+      title: "Difference Between Access Token And Refresh Token",
+      visitBlog: "https://vishvsalvi.hashnode.dev/difference-between-access-token-and-refresh-token",
+      image: "/Images/Token_blog.avif",
+    },
+    {
+      title: "Setup a Fake Rest-API in 5 steps",
+      visitBlog: "https://vishvsalvi.hashnode.dev/setup-a-fake-rest-api-in-5-steps",
+      image: "/Images/Fake_blog.avif",
+    }
+  ]
+
   const handleSubmit = async (e) => {
+
+
     e.preventDefault();
     
     try {
@@ -104,49 +145,26 @@ export default function Portfoliowebsite() {
               Projects
             </h2>
             <div className="grid gap-6 mt-8 sm:grid-cols-2 lg:grid-cols-3">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Karnix 3d Farm</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Image alt="Project 1" className="w-ful object-cover mb-4 rounded-md" src={project_1} />
-                  <p className="text-gray-400">Website made for a 3d printing business. This was my first freelance project.</p>
-                </CardContent>
-                <CardFooter>
-                  <Link target="_blank" className="text-sm font-medium hover:underline underline-offset-4 text-black" href="https://k3df.onrender.com/">
-                    View Demo
-                  </Link>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Flipkart Clone</CardTitle>
-                </CardHeader>
-                <CardContent>
-                <Image alt="Project 2" className="w-full object-cover mb-4 rounded-md" src={project_2} />
-                  <p className="text-gray-400">Flipkart Clone made using React and Tailwind CSS. It is a frontend project.</p>
-                </CardContent>
-                <CardFooter>
-                  <Link target="_blank" className="text-sm font-medium hover:underline underline-offset-4 text-black" href="https://flipkart-clone.pages.dev/">
-                    View Demo
-                  </Link>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Ahead Group <span className="text-gray-400 " >(In progress)</span> </CardTitle>
-                </CardHeader>
-                <CardContent>
-                <Image alt="Project 3" className="w-full object-cover mb-4 rounded-md" src={project_3} />
-
-                  <p className="text-gray-400">Website made for a Educational Trust. This is a freelance gig.</p>
-                </CardContent>
-                <CardFooter>
-                  {/* <Link dis className="text-sm font-medium hover:underline underline-offset-4 text-black" href="#">
-                    View Demo
-                  </Link> */}
-                </CardFooter>
-              </Card>
+              {
+                projects.map((project, index) => (
+                  <Card key={index}>
+                    <CardHeader>
+                      <CardTitle>{project.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <Image width={500} height={100} alt="Project 1" className="w-full object-cover mb-4 rounded-md" src={project.image} />
+                      <p className="text-gray-400">{project.description}</p>
+                    </CardContent>
+                    <CardFooter>
+                      <Link target="_blank" className="text-sm font-medium hover:underline underline-offset-4 text-black" href={project.demoLink}>
+                        View Demo
+                      </Link>
+                    </CardFooter>
+                  </Card>
+                ))
+              }
+              
+              
             </div>
           </div>
         </section>
@@ -158,52 +176,24 @@ export default function Portfoliowebsite() {
             </h2>
             <div className="grid gap-6 mt-8 sm:grid-cols-2 lg:grid-cols-3">
 
-              <Card>
-                <CardHeader>
-                  <CardTitle>Node.js: The Scalable and Lightweight Choice for Developers</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Image width={500} height={500} alt="Project 1" className="w-full rounded-md object-cover mb-4" src={nodeBlog} />
-                  
-                </CardContent>
-                <CardFooter>
-                  <Link target="_blank" className="text-sm font-medium hover:underline underline-offset-4 text-black" href="https://vishvsalvi.hashnode.dev/nodejs-the-scalable-and-lightweight-choice-for-developers">
-                   Read Blog
-                  </Link>
-                </CardFooter>
-              </Card>
-              <Card>
-
-                <CardHeader>
-                  <CardTitle>Difference Between Access Token And Refresh Token</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Image alt="Project 2" className="w-full rounded-md object-cover mb-4" src={tokenBlog} />
-                
-                </CardContent>
-                <CardFooter>
-                  <Link target="_blank" className="text-sm font-medium hover:underline underline-offset-4 text-black" href="https://vishvsalvi.hashnode.dev/difference-between-access-token-and-refresh-token">
-                    Read Blog
-                  </Link>
-                </CardFooter>
-              </Card>
-              <Card>
-
-                <CardHeader>
-                  <CardTitle>Setup a Fake Rest-API in 5 steps</CardTitle>
-                  <br />
-                  <br />
-                </CardHeader>
-                <CardContent>
-                  <Image alt="Project 3" className=" rounded-md w-full object-cover mb-4" src={fakeBlog} />
-            
-                </CardContent>
-                <CardFooter>
-                  <Link target="_blank" className="text-sm font-medium hover:underline underline-offset-4 text-black" href="https://vishvsalvi.hashnode.dev/setup-a-fake-rest-api-in-5-steps">
-                    Read Blog
-                  </Link>
-                </CardFooter>
-              </Card>
+{
+                blogs.map((blog, index) => (  
+                  <Card key={index}>
+                    <CardHeader>
+                      <CardTitle>{blog.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <Image width={500} height={100} alt="Project 1" className="w-full object-cover mb-4 rounded-md" src={blog.image} />
+                    </CardContent>
+                    <CardFooter>
+                      <Link target="_blank" className="text-sm font-medium hover:underline underline-offset-4 text-black" href={blog.visitBlog}>
+                        Visit Blog
+                      </Link>
+                    </CardFooter>
+                  </Card>
+                ))
+}
+             
             </div>
             <div className="flex flex-wrap justify-center mt-10" >
               <Link target="_blank" className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800"  href="https://vishvsalvi.hashnode.dev" >Read more</Link>
