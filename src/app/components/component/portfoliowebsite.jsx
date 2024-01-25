@@ -70,7 +70,6 @@ export default function Portfoliowebsite() {
 
   const handleSubmit = async (e) => {
 
-
     e.preventDefault();
     
     try {
@@ -270,7 +269,7 @@ export default function Portfoliowebsite() {
         </section>
       </main>
       {/* Footer */}
-      <footer className="px-5 h-16 flex items-center justify-between  text-gray-400  bg-black">
+      <footer className="px-5 h-16 flex items-center justify-between text-gray-400  bg-black">
         <div className="text-sm" >
         © 2024 Vishv Salvi
         </div>
