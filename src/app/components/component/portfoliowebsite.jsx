@@ -1,6 +1,5 @@
 "use client"
 import Link from "next/link"
-import Image from "next/image"
 import { CardTitle, 
   CardHeader, 
   CardContent, 
@@ -151,7 +150,7 @@ export default function Portfoliowebsite() {
                       <CardTitle>{project.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <Image width={500} height={100} alt="Project 1" className="w-full object-cover mb-4 rounded-md" src={project.image} />
+                      <img width={500} height={100} alt="Project 1" className="w-full object-cover mb-4 rounded-md" src={project.image} />
                       <p className="text-gray-400">{project.description}</p>
                     </CardContent>
                     <CardFooter>
@@ -182,7 +181,7 @@ export default function Portfoliowebsite() {
                       <CardTitle>{blog.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <Image width={500} height={100} alt="Project 1" className="w-full object-cover mb-4 rounded-md" src={blog.image} />
+                      <img width={500} height={100} alt="Project 1" className="w-full object-cover mb-4 rounded-md" src={blog.image} />
                     </CardContent>
                     <CardFooter>
                       <Link target="_blank" className="text-sm font-medium hover:underline underline-offset-4 text-black" href={blog.visitBlog}>
