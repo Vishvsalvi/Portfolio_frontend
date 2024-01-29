@@ -61,9 +61,9 @@ export default function Portfoliowebsite() {
       image: "/Images/Token_blog.avif",
     },
     {
-      title: "Setup a Fake Rest-API in 5 steps",
-      visitBlog: "https://vishvsalvi.hashnode.dev/setup-a-fake-rest-api-in-5-steps",
-      image: "/Images/Fake_blog.avif",
+      title: "Shadcn: The Ultimate Component Companion",
+      visitBlog: "https://vishvsalvi.hashnode.dev/shadcn",
+      image: "/Images/Shadcn_blog.jpeg",
     }
   ]
 
