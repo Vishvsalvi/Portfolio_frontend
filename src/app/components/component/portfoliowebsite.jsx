@@ -14,9 +14,11 @@ import { Textarea } from "../ui/textarea"
 import { Button } from "../ui/button"
 
 import axios from "axios"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useToast } from "../ui/use-toast"
 
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 export default function Portfoliowebsite() {
   
@@ -26,6 +28,12 @@ export default function Portfoliowebsite() {
   const [loading, setLoading] = useState(false)
 
   const {toast} = useToast()
+
+  useEffect(() => {
+    AOS.init({
+      duration: 3000,
+    })
+  }, [])
 
   const projects = [
     {
@@ -125,7 +133,7 @@ export default function Portfoliowebsite() {
         <section className="w-full pb-[14rem] pt-12 sm:pb-[14rem] sm:pt-24 md:pt-32 md:pb-[21rem] lg:pb-[22rem] lg:py-48 bg-white">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
+              <div data-aos="fade-down" className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-600">
                   Hi, I&apos;m Vishv Salvi
                 </h1>
@@ -142,10 +150,12 @@ export default function Portfoliowebsite() {
             <h2 className="pb-3 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-212529 ">
               Projects
             </h2>
-            <div className="grid gap-6 mt-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div  className="grid gap-6 mt-8 sm:grid-cols-2 lg:grid-cols-3">
               {
                 projects.map((project, index) => (
-                  <Card key={index}>
+                  <div key={index} data-aos={index === 0 ? "fade-right" : (index === 2 ? "fade-left" : "")}>
+
+                  <Card>
                     <CardHeader>
                       <CardTitle>{project.title}</CardTitle>
                     </CardHeader>
@@ -159,6 +169,7 @@ export default function Portfoliowebsite() {
                       </Link>
                     </CardFooter>
                   </Card>
+                  </div>
                 ))
               }
               
@@ -176,7 +187,8 @@ export default function Portfoliowebsite() {
 
 {
                 blogs.map((blog, index) => (  
-                  <Card key={index}>
+                  <div key={index} data-aos={index === 0 ? "fade-right" : (index === 2 ? "fade-left" : "")}>
+                  <Card>
                     <CardHeader>
                       <CardTitle>{blog.title}</CardTitle>
                     </CardHeader>
@@ -189,6 +201,7 @@ export default function Portfoliowebsite() {
                       </Link>
                     </CardFooter>
                   </Card>
+                  </div>
                 ))
 }
              
