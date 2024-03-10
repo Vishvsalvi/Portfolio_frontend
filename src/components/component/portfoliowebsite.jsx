@@ -113,7 +113,7 @@ export default function Portfoliowebsite() {
                   <p className="text-gray-400">Website made for a 3d printing business. This was my first freelance project.</p>
                 </CardContent>
                 <CardFooter>
-                  <Link target="_blank" className="text-sm font-medium hover:underline underline-offset-4 text-black" href="https://k3df.onrender.com/">
+                  <Link target="_blank" className="text-sm font-medium hover:underline underline-offset-4 text-black" href="https://k3df.pages.dev/">
                     View Demo
                   </Link>
                 </CardFooter>
