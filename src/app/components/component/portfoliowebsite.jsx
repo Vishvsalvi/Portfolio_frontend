@@ -38,7 +38,7 @@ export default function Portfoliowebsite() {
   const projects = [
     {
       title: "Karnix 3d Farm",
-      demoLink: "https://k3df.onrender.com/",
+      demoLink: "https://k3df.pages.dev/",
       description: "Website made for a 3d printing business. This was my first freelance project.",
       image: "/Images/Project_1.png",
     }, 
